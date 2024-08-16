@@ -7,6 +7,11 @@
         @csrf
         <button type="submit">Logout</button>
     </form>
+    @if (Auth::user()->isAdmin())
+        <div>
+                <a href="/produtos"><h3>Dashboard Produtos - Adm</h3></a>
+        </div>     
+    @endif
 @else
     <div>
         <ul>

@@ -15,7 +15,7 @@
 
 @yield('content')
 
-@include('parts.header')
+@include('parts.footer')
 
 
 </body>

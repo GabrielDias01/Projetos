@@ -1,12 +1,14 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\http\Controllers\ProdutoController;
+use App\Http\Middleware\ProdutosMiddleware;
 
-Route::get('/', function () {
-    return view('home');
-});
+
+Route::get('/', [HomeController::class, 'index']) ->name('home');
+
 
 Route::get('/registro', [UserController::class, 'showRegistroForm'])->name('usuarios.registro');
 Route::post('/registro', [UserController::class, 'registro'])->name('usuarios.registro');
@@ -23,5 +25,7 @@ Route::get('/dashboard',function(){
 Route::post('/logout', [UserController::class, 'logout']);
 
 //rota para produtos
-Route::resource('produtos', ProdutoController::class);
+Route::resource('produtos', ProdutoController::class)-> 
+middleware(ProdutosMiddleware::class);
+
 
