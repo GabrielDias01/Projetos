@@ -50,6 +50,7 @@
                 <label for="preco">Preço:</label>
                 <input type="text" name="preco" class="form-control" placeholder="Preço">
             </div>
+           
 
 
             <button type="submit" class="btn btn-primary">Enviar</button>
