@@ -39,13 +39,6 @@
                 <input type="text" name="categoria" class="form-control" placeholder="Categoria">
             </div>
 
-
-            <div class="form-group">
-                <label for="quantidade">Quantidade:</label>
-                <input type="number" name="quantidade" class="form-control" placeholder="Quantidade">
-            </div>
-
-
             <div class="form-group">
                 <label for="preco">Preço:</label>
                 <input type="text" name="preco" class="form-control" placeholder="Preço">
