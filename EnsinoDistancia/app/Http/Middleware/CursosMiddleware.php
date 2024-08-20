@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class ProdutosMiddleware
+class CursosMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class ProdutosMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->tipo_usuario === 'administrador') {
+        if (Auth::check() && Auth::user()->tipo_usuario === 'professor') {
             return $next($request);
         } else {
             return redirect()->route('')->withErrors(['access' => 'Voce nao tem premissao para acessar essa area']);
