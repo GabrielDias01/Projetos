@@ -12,8 +12,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-       $cursos = Curso::all();
-       return view('cursos.index', compact('cursos'));
+        $cursos = Curso::all();
+        return view('cursos.index', compact('cursos'));
     }
 
     /**
@@ -30,18 +30,17 @@ class CursoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome'=> 'required|string|max:255',
-            'descricao'=> 'required',
-            'categoria'=> 'required',
-            'preco'=> 'required|numeric',
+            'nome' => 'required|string|max:255',
+            'descricao' => 'required',
+            'categoria' => 'required',
+            'preco' => 'required|numeric',
         ]);
 
 
         Curso::create($request->all());
 
 
-        return redirect()->route('cursos.index')->
-        with('sucess','Produto Criado com Sucesso');
+        return redirect()->route('cursos.index')->with('sucess', 'Produto Criado com Sucesso');
     }
 
 
@@ -59,20 +58,22 @@ class CursoController extends Controller
      */
     public function update(Request $request, Curso $curso)
     {
+        // Validação dos dados do formulário
         $request->validate([
-            'nome'=> 'required|string|max:255',
-            'descricao'=> 'required',
-            'categoria'=> 'required',
-            'preco'=> 'required|numeric',
+            'nome' => 'required|string|max:255',
+            'descricao' => 'required',
+            'categoria' => 'required',
+            'preco' => 'required|numeric',
         ]);
 
+        // Atualize o curso com os dados validados
+        $curso->update($request->all());
 
-        Curso::create($request->all());
-
-
-        return redirect()->route('cursos.index')->
-        with('sucess','Produto Criado com Sucesso');
+        // Redirecione para a página de lista de cursos com uma mensagem de sucesso
+        return redirect()->route('cursos.index')
+            ->with('success', 'Curso atualizado com sucesso!');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -82,11 +83,11 @@ class CursoController extends Controller
         $curso->delete();
 
 
-        return redirect()->route('cursos.index')->
-        with('sucess','Produto Deletado com Sucesso');
+        return redirect()->route('cursos.index')->with('sucess', 'Curso Deletado com Sucesso');
     }
 
-    public function show(Curso $produto){
+    public function show(Curso $curso)
+    {
         return view('cursos.show', compact('curso'));
     }
 }

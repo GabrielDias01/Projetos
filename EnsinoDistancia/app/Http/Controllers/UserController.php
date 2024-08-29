@@ -22,18 +22,20 @@ class UserController extends Controller
     // Processar o login do usuário
     public function login(Request $request)
     {
+        // Validação dos dados de entrada
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
-
+    
+        // Tentativa de autenticação
         if (Auth::guard('web')->attempt($credentials)) {
+            // Regenera a sessão após a autenticação bem-sucedida
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
-
-
+    
+        // Redireciona de volta com mensagem de erro e mantém o email digitado
         return back()->withErrors([
             'email' => 'As credenciais não correspondem aos nossos registros.',
         ])->onlyInput('email');
