@@ -1,26 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
-            <div class="card border-light shadow-sm rounded">
-                <div class="card-header bg-light text-center border-bottom">
-                    <h4 class="mb-0 text-dark">Login</h4>
-                </div>
-                <div class="card-body">
-                    @if ($errors->any())
-                        <div class="alert alert-danger mb-4">
-                            <ul class="mb-0">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('alunos.login') }}">
-                        @csrf
+<div class="container">
+    <h1>Login</h1>
+    <form method="POST" action="{{ route('alunos.login') }}">
+        @csrf
 
                         <!-- Email Input -->
                         <div class="form-group mb-3">

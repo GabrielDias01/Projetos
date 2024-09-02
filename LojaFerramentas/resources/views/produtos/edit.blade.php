@@ -40,13 +40,6 @@
                 <input type="text" name="categoria" class="form-control" value="{{ $produto->categoria }}">
             </div>
 
-
-            <div class="form-group">
-                <label for="quantidade">Quantidade:</label>
-                <input type="number" name="quantidade" class="form-control" value="{{ $produto->quantidade }}">
-            </div>
-
-
             <div class="form-group">
                 <label for="preco">Preço:</label>
                 <input type="text" name="preco" class="form-control" value="{{ $produto->preco }}">
