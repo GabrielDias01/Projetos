@@ -133,3 +133,6 @@ A aplicação de To-Do List deve:
 <img src="img/DIAGRAMA DE CLASSE.PNG">
 <img src="img/DIAGRAMA DE USO.PNG">
 <img src="img/DIAGRAMA DE FLUXO.PNG">
+<img src="img/1.png">
+<img src="img/2.png">
+<img src="img/3.png">
