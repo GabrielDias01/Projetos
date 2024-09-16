@@ -125,3 +125,13 @@ Orçamento:
 
 Licenças e Infraestrutura: Custos com hospedagem, ferramentas de desenvolvimento e segurança
 Desenvolvimento: Custo da equipe técnica
+
+![Diagrama](ImagensDoProjeto/Diagramas/Classe.png)
+![Diagrama](ImagensDoProjeto/Diagramas/Fluxo.png)
+![Diagrama](ImagensDoProjeto/Diagramas/Uso.png)
+
+![Prototipo](ImagensDoProjeto/Prototipo/baixa.png)
+![Prototipo](ImagensDoProjeto/Prototipo/media.png)
+![Prototipo](ImagensDoProjeto/Prototipo/alta.png)
+
+
