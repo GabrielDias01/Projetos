@@ -1,22 +1,21 @@
-import mongoose from "mongoose";
-
-
-const DATABASE_URL = process.env.DATABASE_URL;
-
-
-//verificação
-if (!DATABASE_URL) {
-    throw new Error(
-        'Por favor, defina a variável DATABASE_URL no arquivo .env.local'
-    );
-}
-
+import mongoose from 'mongoose';
 
 const connectMongo = async () => {
-    mongoose.connect(DATABASE_URL)
-        .then("Conectado com Mongo")
-        .catch(err => console.error(err));
-}
+  if (mongoose.connection.readyState === 1) {
+    return;
+  }
 
+  try {
+    await mongoose.connect(process.env.DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('JWT_SECRET:', process.env.JWT_SECRET);
+
+    console.log('Conectado ao MongoDB');
+  } catch (error) {
+    console.error('Erro ao conectar ao MongoDB:', error);
+  }
+};
 
 export default connectMongo;

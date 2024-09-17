@@ -1,15 +1,18 @@
 'use client';
 
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '../page.module.css';
 import '../globals.css';
+
 
 export default function RegisterPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const router = useRouter();
+
 
     const handleRegister = async () => {
         const response = await fetch('/api/auth/register', {
@@ -20,12 +23,14 @@ export default function RegisterPage() {
             body: JSON.stringify({ username, password }),
         });
 
+
         if (response.ok) {
             router.push('/tasks');
         } else {
             setError('Erro ao registrar');
         }
     };
+
 
     return (
         <div className={styles.container}>

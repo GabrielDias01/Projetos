@@ -2,28 +2,31 @@ import User from "@/models/User";
 import connectMongo from "@/utils/dbConnect";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import bcrypt from 'bcryptjs';
 
 export async function POST(request) {
-    const { username, password } = await request.json(); // Obtém os dados de login do usuário
-    await connectMongo(); // Conecta ao banco de dados
-
     try {
-        // Verifica se o usuário existe no banco de dados
-        const user = await User.findOne({ username });
-
-        // Se o usuário não existir ou a senha estiver incorreta, retorna um erro
-        if (!user || !(await user.comparePassword(password))) {
-            return NextResponse.json({ success: false, message: "Usuário ou senha incorretos" }, { status: 400 });
-        }
-
-        // Se o usuário existir e a senha estiver correta, gera o token JWT
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' }); // Token expira em 1 hora
-
-        // Retorna o token para o frontend
-        return NextResponse.json({ token });
-
+      const { username, password } = await request.json();
+      console.log("Dados recebidos:", { username, password }); // Log dos dados recebidos
+      await connectMongo();
+  
+      const user = await User.findOne({ username });
+      console.log("Usuário encontrado:", user); // Log do usuário encontrado
+  
+      if (!user) {
+        return NextResponse.json({ success: false, message: "Usuário não encontrado" }, { status: 400 });
+      }
+  
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      console.log("Senha válida:", isPasswordValid); // Log da validade da senha
+  
+      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      console.log('Token gerado:', token); // Log do token gerado
+  
+      return NextResponse.json({ success: true, token });
     } catch (error) {
-        return NextResponse.json({ success: false }, { status: 400 });
+      console.error("Erro ao processar login:", error);
+      return NextResponse.json({ success: false, message: "Erro ao processar login" }, { status: 500 });
     }
-
-}
+  }
+  
