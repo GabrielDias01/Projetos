@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Importa o Bootstrap globalmente
 import styles from '../page.module.css'; // Ajuste o caminho conforme necessário
 
 export default function TasksPage() {
@@ -34,8 +35,6 @@ export default function TasksPage() {
         }
 
         const userData = await userResponse.json();
-        console.log('Dados do usuário:', userData); // Verifique os dados recebidos
-
         setIsAdmin(userData.isAdmin);
         setUser(userData);
 
@@ -132,59 +131,72 @@ export default function TasksPage() {
 
   return (
     <div>
-      <nav className={styles.navbar}>
-        <div className={styles.logo}></div> {/* Logo está configurada no CSS */}
-        {user ? (
-          <div className={styles.userProfile}>
-            <div className={styles.userName}>{user.username || 'Usuário'}</div>
-          </div>
-        ) : (
-          <div className={styles.userProfile}>Carregando...</div>
-        )}
+      {/* Navbar fora do container, ocupando toda a largura */}
+      <nav className={`${styles.navbar} navbar navbar-expand-lg `}>
+        <div className="container-fluid">
+          <div className={styles.logo}></div> {/* Logo está configurada no CSS */}
+          {user ? (
+            <div className={styles.userProfile}>
+              <div className={styles.userName}>{user.username || 'Usuário'}</div>
+            </div>
+          ) : (
+            <div className={styles.userProfile}>Carregando...</div>
+          )}
+        </div>
       </nav>
-      <h1>Folha de Montagem</h1>
-      {isAdmin && (
-        <>
-          <input
-            type="text"
-            placeholder="Nova tarefa"
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
-          />
-          <button onClick={addTask}>Adicionar Tarefa</button>
-        </>
-      )}
-      <ul>
-        {Array.isArray(tasks) && tasks.map((task) => (
-          <li key={task._id}>
-            {editTaskId === task._id ? (
-              <>
-                <input
-                  type="text"
-                  value={editTitle}
-                  onChange={(e) => setEditTitle(e.target.value)}
-                />
-                <select value={editStatus} onChange={handleStatusChange}>
-                  <option value="Pendente">Pendente</option>
-                  <option value="Concluída">Concluída</option>
-                  <option value="Parado">Parado</option>
-                </select>
-                <button onClick={updateTask}>Salvar</button>
-              </>
-            ) : (
-              <>
-                Folha de Montagem:  {task.title} Status: {task.status}
-                {isAdmin && (
-                  <>
-                    <button onClick={() => deleteTask(task._id)}>Excluir</button>
-                  </>
-                )}
-                <button onClick={() => startEditTask(task)}>Editar</button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
+
+      {/* O container principal tem um max-width para manter as proporções */}
+      <div className="container mt-4" style={{ maxWidth: '960px' }}>
+        <h1 className="mb-4">Folha de Montagem</h1>
+        
+        {isAdmin && (
+          <div className="mb-3">
+            <input
+              type="text"
+              placeholder="Nova tarefa"
+              value={newTask}
+              onChange={(e) => setNewTask(e.target.value)}
+              className="form-control"
+            />
+            <button onClick={addTask} className="btn btn-primary mt-3">Adicionar Tarefa</button>
+          </div>
+        )}
+
+        <ul className="list-group">
+          {Array.isArray(tasks) && tasks.map((task) => (
+            <li key={task._id} className="list-group-item d-flex justify-content-between align-items-center">
+              {editTaskId === task._id ? (
+                <div className="w-100">
+                  <input
+                    type="text"
+                    value={editTitle}
+                    onChange={(e) => setEditTitle(e.target.value)}
+                    className="form-control mb-2"
+                  />
+                  <select value={editStatus} onChange={handleStatusChange} className="form-select">
+                    <option value="Pendente">Pendente</option>
+                    <option value="Concluída">Concluída</option>
+                    <option value="Parado">Parado</option>
+                  </select>
+                  <button onClick={updateTask} className="btn btn-success mt-2">Salvar</button>
+                </div>
+              ) : (
+                <>
+                  <span>
+                    Folha de Montagem: {task.title} | Status: {task.status}
+                  </span>
+                  <div>
+                    {isAdmin && (
+                      <button onClick={() => deleteTask(task._id)} className="btn btn-danger ms-2">Excluir</button>
+                    )}
+                    <button onClick={() => startEditTask(task)} className="btn btn-secondary ms-2">Editar</button>
+                  </div>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
