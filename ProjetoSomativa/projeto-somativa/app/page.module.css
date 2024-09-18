@@ -47,7 +47,7 @@
   border-radius: 5px;
   font-size: 18px;         /* Aumenta o tamanho da fonte para mais legibilidade */
   cursor: pointer;
-  margin-top: 15px;        /* Aumenta a margem superior para mais espaço */
+         /* Aumenta a margem superior para mais espaço */
 }
 
 .button:hover {
@@ -108,22 +108,7 @@
   font-size: 18px;         /* Aumenta o tamanho da fonte para mais legibilidade */
 }
 
-/* Estilos para o botão de ação */
-.button {
-  width: 100%;
-  padding: 15px;           /* Aumenta o padding para um botão maior */
-  background-color: rgb(200, 224, 244);
-  color: rgb(0, 0, 0);
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;         /* Aumenta o tamanho da fonte para mais legibilidade */
-  cursor: pointer;
-  margin-top: 15px;        /* Aumenta a margem superior para mais espaço */
-}
-
-.button:hover {
-  background-color: rgb(180, 204, 224); /* Uma cor ligeiramente diferente para o hover */
-}
+/* Estilos para o botão de ação *
 
 /* Estilos para o texto e links adicionais */
 .text {

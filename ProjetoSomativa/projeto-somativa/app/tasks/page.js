@@ -59,6 +59,11 @@ export default function TasksPage() {
     fetchTasks();
   }, [router]);
 
+  const handlerLogout = () => {
+    localStorage.removeItem('token');
+    router.push('/login');
+  };
+
   const addTask = async () => {
     if (!isAdmin) {
       console.error('Somente administradores podem criar tarefas');
@@ -137,8 +142,15 @@ export default function TasksPage() {
           <div className={styles.logo}></div> {/* Logo está configurada no CSS */}
           {user ? (
             <div className={styles.userProfile}>
+             
               <div className={styles.userName}>{user.username || 'Usuário'}</div>
+              <div>
+                <button className={styles.button} onClick={handlerLogout}>
+                  Logout
+                </button>
+              </div>
             </div>
+            
           ) : (
             <div className={styles.userProfile}>Carregando...</div>
           )}
