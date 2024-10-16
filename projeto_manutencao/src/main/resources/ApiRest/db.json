@@ -1,0 +1,94 @@
+{
+  "maquinas": [
+    {
+      "id": "df66",
+      "codigo": "M002",
+      "nome": "Fresadora",
+      "modelo": "FRE 5000",
+      "fabricante": "Haas",
+      "dataAquisicao": "2023-05-15",
+      "tempoVidaEstimado": 8,
+      "localizacao": "Linha 2",
+      "detalhes": "Alta precisão e velocidade.",
+      "manual": "URL do manual"
+    },
+    {
+      "tempoVidaEstimado": 8,
+      "codigo": "M003",
+      "localizacao": "Linha 1",
+      "nome": "Torno",
+      "fabricante": "ROMI",
+      "manual": "URL",
+      "modelo": "teste",
+      "dataAquisicao": "2024-10-11",
+      "detalhes": "Alta precisao",
+      "id": "1cb0"
+    }
+  ],
+  "historicoManutencao": [
+    {
+      "tempoDeParada": 4,
+      "observacoes": "Substituição preventiva da correia.",
+      "tipo": "Preventiva",
+      "data": "2024-10-08",
+      "maquinaId": "1",
+      "pecasTrocadas": "Correia",
+      "tecnicoId": "João Silva",
+      "id": "1"
+    },
+    {
+      "tempoDeParada": 2,
+      "observacoes": "Substituição do motor devido a falha.",
+      "tipo": "Corretiva",
+      "data": "2024-10-10",
+      "maquinaId": "2",
+      "pecasTrocadas": "Motor",
+      "tecnicoId": "desconhecido",
+      "id": "a2d2"
+    },
+    {
+      "id": "2ceb",
+      "tempoDeParada": 3,
+      "observacoes": "substituicao",
+      "tipo": "Corretiva",
+      "data": "2024-10-11",
+      "maquinaId": "3",
+      "pecasTrocadas": "Motor",
+      "tecnicoId": "desconhecido"
+    }
+  ],
+  "falhas": [
+    {
+      "id": "1",
+      "maquinaId": 1,
+      "data": "2024-09-28",
+      "problema": "Falha no motor",
+      "prioridade": "Alta",
+      "operador": "Carlos Lima"
+    },
+    {
+      "data": "2024-10-05",
+      "prioridade": "Média",
+      "maquinaId": "4",
+      "problema": "Falha no sistema elétrico",
+      "operador": "Ana Costa",
+      "id": "353e"
+    },
+    {
+      "id": "3bd8",
+      "data": "2024-10-11",
+      "prioridade": "Media",
+      "maquinaId": "2",
+      "problema": "Falha no cambio",
+      "operador": "Matheus"
+    }
+  ],
+  "tecnicos": [
+    {
+      "id": "bb46",
+      "nome": "Maria Oliveira",
+      "especialidade": "Elétrica",
+      "disponibilidade": "Ocupado"
+    }
+  ]
+}

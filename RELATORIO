@@ -1,0 +1,28 @@
+Relatório de Manutenção
+===================================
+Máquinas:
+ID: df66, Código: M002, Nome: Fresadora, Modelo: FRE 5000, Fabricante: Haas, Data de Aquisição: 2023-05-15, Tempo de Vida Estimado: 8, Localização: Linha 2, Detalhes: Alta precisÃ£o e velocidade., Manual: URL do manual
+ID: 1cb0, Código: M003, Nome: Torno, Modelo: teste, Fabricante: ROMI, Data de Aquisição: 2024-10-11, Tempo de Vida Estimado: 8, Localização: Linha 1, Detalhes: Alta precisao, Manual: URL
+ID: e08b, Código: M002, Nome: Fresadora, Modelo: FRE 5000, Fabricante: Haas, Data de Aquisição: 2023-05-15, Tempo de Vida Estimado: 8, Localização: Linha 2, Detalhes: Alta precisÃ£o e velocidade., Manual: URL do manual
+ID: 62cf, Código: M009, Nome: Teste, Modelo: Teste, Fabricante: Teste, Data de Aquisição: 2023-12-12, Tempo de Vida Estimado: 5, Localização: Linha 4, Detalhes: Alta, Manual: URL
+
+Manutenções:
+ID: 1, Máquina ID: 1, Data: 2024-10-08, Tipo: Preventiva, Peças Trocadas: Correia, Tempo de Parada: 4, Técnico ID: JoÃ£o Silva, Observações: SubstituiÃ§Ã£o preventiva da correia.
+ID: a2d2, Máquina ID: 2, Data: 2024-10-10, Tipo: Corretiva, Peças Trocadas: Motor, Tempo de Parada: 2, Técnico ID: desconhecido, Observações: SubstituiÃ§Ã£o do motor devido a falha.
+ID: 2ceb, Máquina ID: 3, Data: 2024-10-11, Tipo: Corretiva, Peças Trocadas: Motor, Tempo de Parada: 3, Técnico ID: desconhecido, Observações: substituicao
+ID: e9a1, Máquina ID: 2, Data: 2000-10-10, Tipo: 55, Peças Trocadas: 1, Tempo de Parada: 1, Técnico ID: 1, Observações: 
+ID: 7632, Máquina ID: 2, Data: 2000-10-12, Tipo: Teste, Peças Trocadas: 1, Tempo de Parada: 1, Técnico ID: 1, Observações: 1
+
+Falhas:
+ID: 1, Máquina ID: 1, Data: 2024-09-28, Problema: Falha no motor, Prioridade: Alta, Operador: Carlos Lima
+ID: 353e, Máquina ID: 4, Data: 2024-10-05, Problema: Falha no sistema elÃ©trico, Prioridade: MÃ©dia, Operador: Ana Costa
+ID: 3bd8, Máquina ID: 2, Data: 2024-10-11, Problema: Falha no cambio, Prioridade: Media, Operador: Matheus
+ID: b22e, Máquina ID: 1, Data: 2000-08-08, Problema: Teste, Prioridade: Alta, Operador: Teste
+ID: ed8c, Máquina ID: 44, Data: 2000-10-10, Problema: Novo, Prioridade: alta, Operador: Eu
+ID: 6067, Máquina ID: 21, Data: 2005-12-12, Problema: 1, Prioridade: 1, Operador: 1
+
+Técnicos:
+ID: bb46, Nome: Maria Oliveira, Especialidade: ElÃ©trica, Disponibilidade: Ocupado
+ID: 8ffc, Nome: Teste, Especialidade: Teste , Disponibilidade: Teste
+ID: 0e18, Nome: Novo, Especialidade: Novo, Disponibilidade: Novo
+
